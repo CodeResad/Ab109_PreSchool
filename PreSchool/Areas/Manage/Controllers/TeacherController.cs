@@ -74,39 +74,60 @@ public class TeacherController : Controller
         return RedirectToAction("Index");
     }
 
-    public async Task<IActionResult> Update(int id)
+    public async Task<IActionResult> Update(int? id)
     {
-        Teacher teacher = await _context.Teachers.FirstOrDefaultAsync(x => x.Id == id);
-        if (teacher == null)
+        if (id == null)
+        {
+            return BadRequest();
+        }
+        Teacher dbTeacher = await _context.Teachers.FirstOrDefaultAsync(x => x.Id == id);
+        if (dbTeacher == null)
         {
             return NotFound();
         }
-        return View(teacher);
+        return View(dbTeacher);
     }
 
     [HttpPost]
     public async Task<IActionResult> Update(int id, Teacher teacher)
     {
+        if (id == null)
+        {
+            return BadRequest();
+        }
+        Teacher dbTeacher = await _context.Teachers.FirstOrDefaultAsync(x => x.Id == id);
+        if (dbTeacher == null)
+        {
+            return NotFound();
+        }
+        
         if (!ModelState.IsValid)
         {
             return View();
         }
-        
-        if (!teacher.File.ContentType.Contains("image"))
-        {
-            ModelState.AddModelError("File", "Duzgun format daxil edin");
-            return View();
-        }
 
-        if (teacher.File.Length > 2097152)
+        if (teacher.File != null)
         {
-            ModelState.AddModelError("File", "File is too long");
-            return View();
+            if (!teacher.File.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError("File", "Duzgun format daxil edin");
+                return View();
+            }
+
+            if (teacher.File.Length > 2097152)
+            {
+                ModelState.AddModelError("File", "File is too long");
+                return View();
+            }
+            
+            dbTeacher.ImgUrl.RemoveFile(_environment.WebRootPath, "/Upload/Teacher");
+            dbTeacher.ImgUrl = teacher.File.CreateFile(_environment.WebRootPath, "Upload/Teacher");
+
         }
         
-        teacher.ImgUrl = teacher.File.CreateFile(_environment.WebRootPath, "Upload/Teacher");
+        dbTeacher.FullName = teacher.FullName;
+        dbTeacher.Designation = teacher.Designation;
         
-        _context.Update(teacher);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }

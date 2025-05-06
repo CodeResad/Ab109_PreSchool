@@ -35676,6 +35676,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Upload\Teacher\2bc179e9-f54f-49fb-8d28-5a89c92eb2a81000107275.JPG'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Upload\Teacher\7d75e82c-6a5d-4c9c-9897-527422e305e81731012904973.jpeg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>PreSchool</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PreSchool</BasePath>
+      <RelativePath>Upload/Teacher/7d75e82c-6a5d-4c9c-9897-527422e305e81731012904973.jpeg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3n6ba1xe85</Fingerprint>
+      <Integrity>X3QHKZ/eFKxHfXAdcJslK3+4ZG2A+rO6Yxf7/vkhhRQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Upload\Teacher\7d75e82c-6a5d-4c9c-9897-527422e305e81731012904973.jpeg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Upload\Teacher\9c445986-6e52-4111-a720-3530db990594team-1.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>PreSchool</SourceId>

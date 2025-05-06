@@ -9,5 +9,5 @@ public class Teacher : BaseEntity
     public string Designation { get; set; }
     public string? ImgUrl { get; set; }
     [NotMapped]
-    public IFormFile File { get; set; }
+    public IFormFile? File { get; set; }
 }
